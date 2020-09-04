@@ -1,0 +1,16 @@
+.productCheckout__comp >img{
+    align-self:left;
+    
+    max-height: 200px;
+
+    box-shadow: 3px 3px 6px  rgb(117, 109, 104);
+    object-fit: cover;
+    margin-right: 15px;
+    min-height: 200px;
+    width: 300px;
+    max-height: 200px;
+}
+.productCheckout__comp{
+    display: flex;
+    margin-bottom: 1em; 
+}

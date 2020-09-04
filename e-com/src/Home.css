@@ -1,0 +1,17 @@
+.home__bannerImage{
+   margin-bottom: -100px;
+   height: 300px;
+   width: 100%;
+   max-width: 1500px;
+   mask-image: linear-gradient(to bottom,rgb(0,0,0,1),rgb(0,0,0,0)); 
+}
+.home__banner{
+margin: 0 100px 0 100px;
+}
+.home__product{
+    width: 100%;
+   
+    margin-bottom: 1em;
+    display: flex;
+    z-index: 1;
+}

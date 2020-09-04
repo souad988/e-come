@@ -1,0 +1,17 @@
+*{
+margin: 0;
+}
+button{
+  background-image: linear-gradient(to right, #f1e20d 20%, #f8c007 51%, #f7ca06 100%);
+/*.btn-grad:hover { background-position: right center; }*/
+  /*  background-image: linear-gradient(to right, #B2FEFA 0%, #0ED2F7 51%, #B2FEFA 100%);*/
+    box-shadow: 3px 3px 6px  rgb(117, 109, 104);
+    font-weight: 600;
+   
+    width: 200px;
+    height: 25px;
+    background-color: rgb(241, 207, 15);
+     border-radius: 4px;
+    border: 1px solid;
+    border-color: saddlebrown ;
+}

@@ -1,0 +1,33 @@
+.login{
+    display: grid;
+    grid-template-rows: 1fr ;
+    justify-items: center;
+    margin: 2em ;
+}
+
+.login__form{
+    align-self:center;
+    border: 1px solid ;
+    border-radius: 10px;
+    border-bottom-width: 2px;
+    border-right-width:2px ;
+    box-shadow: 3px 3px 6px  rgb(117, 109, 104);
+    background-color:  rgb(245, 244, 244);
+    padding: 1em;
+    width: 250px;
+    height:300px;
+}
+.login__form>h1{
+ text-decoration-line: underline;
+}
+.login__form>form{
+    justify-self: center;
+    margin: 2em 0;
+}
+.login__form>form>button{
+    margin-top: 2em;
+    width: 200px!important;
+}
+.login__form>form>input{
+    width: 200px;
+}

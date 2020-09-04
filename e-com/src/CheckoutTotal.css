@@ -1,0 +1,11 @@
+.checkout__total{
+    margin: 1em;
+    width: 300px;
+    padding: 1em;
+    border: 1px solid ;
+    border-radius: 10px;
+    border-bottom-width: 2px;
+    border-right-width:2px ;
+    box-shadow: 3px 3px 6px  rgb(117, 109, 104);
+     background-color:  rgb(245, 244, 244);
+}
