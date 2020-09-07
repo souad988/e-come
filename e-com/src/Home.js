@@ -6,8 +6,11 @@ function Home() {
     
         <div className="home__banner">
          <div>
-          <img src="../advert.jpg" alt="" className="home__bannerImage"/>
+          <img src="../hijab.jpg" alt="" className="home__bannerImage"/>
        </div>
+       <div className="home__product__container">
+           <div></div>
+           <div>
        <div className="home__product">
             <Product 
                 id="10"
@@ -58,6 +61,9 @@ function Home() {
                 range={3} 
             />
              
+            </div>
+            </div>
+            <div></div>
             </div>
         </div>
     );

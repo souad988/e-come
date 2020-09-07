@@ -38,7 +38,7 @@ function Login() {
                    <h5><strong>Password</strong></h5>
                    <input value={password} type="password" onChange={event=>setPassword(event.target.value)}></input>
                    <button type="submit" onClick={login}> sign in </button>
-                   <button type="submit" onClick={register}> sign in </button>
+                   <button type="submit" onClick={register}> Create account </button>
                </form>
            </div>
         </div>

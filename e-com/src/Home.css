@@ -1,17 +1,29 @@
 .home__bannerImage{
-   margin-bottom: -100px;
+   margin-bottom: -120px;
    height: 300px;
    width: 100%;
    max-width: 1500px;
-   mask-image: linear-gradient(to bottom,rgb(0,0,0,1),rgb(0,0,0,0)); 
+   object-fit: fill;
+   mask-image: linear-gradient(to bottom,rgb(43, 42, 42),rgba(141, 140, 140, 0)); 
 }
 .home__banner{
-margin: 0 100px 0 100px;
+margin: 0 /*100px 0 100px*/;
+
+}
+.home__product__container{
+   
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+
+
 }
 .home__product{
-    width: 100%;
-   
+ 
+
+    max-width: 1000px;
     margin-bottom: 1em;
     display: flex;
+    justify-items: center;
     z-index: 1;
 }
