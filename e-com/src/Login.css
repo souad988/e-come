@@ -2,22 +2,32 @@
     display: grid;
     grid-template-rows: 1fr ;
     justify-items: center;
-    margin: 2em ;
+    margin: 1em ;
+}
+.form__container{
+    display: flex;
+    flex-direction: row;
+
 }
 
-.login__form{
+.login__form,.signup__form {
+    margin-top: 2em;
     align-self:center;
-    border: 1px solid ;
+   /* border: 1px solid ;*/
     border-radius: 10px;
     border-bottom-width: 2px;
     border-right-width:2px ;
     box-shadow: 3px 3px 6px  rgb(117, 109, 104);
-    background-color:  rgb(245, 244, 244);
-    padding: 1em;
-    width: 250px;
-    height:300px;
+    background-color: white;
+    padding: 2em 3em;
+    width: 350px;
+    height:350px;
 }
-.login__form>h1{
+.signup__form{
+  width: 500px;
+  background-color: white;
+}
+h1{
  text-decoration-line: underline;
 }
 .login__form>form{
@@ -26,8 +36,12 @@
 }
 .login__form>form>button{
     margin-top: 2em;
-    width: 200px!important;
+    width: 300px!important;
+    height: 40px!important;
 }
-.login__form>form>input{
-    width: 200px;
+.login__form >form>input{
+    border-radius: 4px;
+    width: 300px!important;
+    height: 30px!important;
+
 }

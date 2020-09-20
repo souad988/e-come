@@ -1,14 +1,16 @@
 import React from 'react';
 import './Header.css';
-import {Link} from 'react-router-dom';
+import {useHistory,Link} from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import { useStateValue } from './StateProvider';
 import { myauth } from './firebase';
 function Header() {
+    const history =useHistory();
     const [{basket,user}] = useStateValue();
    const login= ()=>{
       if(user){
           myauth.signOut();
+          history.push("/");
       }
     }
     return (

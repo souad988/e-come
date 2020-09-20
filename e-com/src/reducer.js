@@ -7,9 +7,7 @@ export const initialState = {
 export const totalToPay = (basket)=>basket.reduce((amount,item)=>amount+item.price,0);
 
 const reducer=(state,action)=>{
-    console.log(action);
-    
-    console.log(action.user);
+    //console.log(action);
     switch(action.type){
         case 'SET_USER':
             return{
