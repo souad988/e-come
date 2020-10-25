@@ -7,9 +7,10 @@ import {useStateValue} from "./StateProvider";
 import  {useHistory} from 'react-router-dom';
 import axios from './axios';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+import {db} from './firebase';
 
 function Payement() {
-    const [{basket}]=useStateValue();
+    const [{basket,user},dispatch]=useStateValue();
     const stripe=useStripe();
     const elements=useElements();
     const history = useHistory();
@@ -33,7 +34,7 @@ function Payement() {
         
      }, [basket])
      
-    console.log('le total est :',totalToPay(basket));
+    //console.log('le total est :',totalToPay(basket));
     const handleSubmit = async (event) =>{
              event.preventDefault();
              setProcessing(true);
@@ -44,10 +45,26 @@ function Payement() {
              }).then(({paymentIntent})=>{
                  // paymentItent is payment confirmation 
                  console.log('here we are :',paymentIntent)
+                db
+                  .collection('clients')
+                  .doc(user?.uid)
+                  .collection('orders')
+                  .doc(paymentIntent.id)
+                  .set({
+                      basket:basket,
+                      amount:paymentIntent.amount,
+                      created:paymentIntent.created
+                    })
+                
+                 dispatch({
+                    type:'CLEAR_BASKET',
+                         }) 
+                     
+                
                  setProcessing(false);
                  setSucceded(true);
                  setError(null);
-                 
+
                  history.push('/Checkout')
              })
     }

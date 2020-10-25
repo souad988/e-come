@@ -31,7 +31,12 @@ const reducer=(state,action)=>{
                 basket:newBasket,
                  
             };
-     
+        case 'CLEAR_BASKET':
+            return{
+                ...state,
+                basket:[],
+                
+            };
         default:
             return state;
     }
