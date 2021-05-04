@@ -14,7 +14,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Add custom claims
 
         return token
-
+    
 
 class CustomUserSerializer(serializers.ModelSerializer):
    
