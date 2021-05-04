@@ -6,11 +6,14 @@ import { useStateValue } from './StateProvider';
 import { myauth } from './firebase';
 function Header() {
     const history =useHistory();
-    const [{basket,user}] = useStateValue();
+    const [{basket,user},dispatch] = useStateValue();
    const login= ()=>{
       if(user){
-          myauth.signOut();
-          history.push("/");
+                dispatch({
+                    type:'SET_USER',
+                    user:null
+                }) 
+                history.push("/");
       }
     }
     return (

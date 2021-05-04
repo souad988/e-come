@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('api-auth/', include('rest_framework.urls')),
     path('verification/', include('verify_email.urls')),
+    path('accounts/', include('users.urls')),
+   # path('verification/user/', include('users.urls')),
     # path('api/', include('lettres.api.urls')),
     #path('pai/', include('lettres.urls')),
     path('api/users/', include('users.api.urls')),
