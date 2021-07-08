@@ -90,7 +90,7 @@ function Login() {
                    <button type="submit" onClick={login}> sign in </button>
                   
                </form>
-                <a href="javascript:;" onClick={() => setShowing({ showing: !showing })}>Create a new account? </a>
+                <a href="#" onClick={() => setShowing({ showing: !showing })}>Create a new account? </a>
            </div>
            <div className="signup__form" style={{ display: (showing ? 'block' : 'none') }}>
                <h5>New user?</h5>

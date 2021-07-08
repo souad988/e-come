@@ -28,16 +28,16 @@ function Header() {
             <div className="header__nav">
               <Link to={!user && "/login"} className="header__link">
                   <div onClick={login} className="header__navLink">
-    <span className="header__linkLineOne">login {user?.email}</span>
+    <span className="header__linkLineOne">{user?.username}</span>
     <span className="header__linkLineTow">{user? 'Sign Out' : 'Sign In'}</span>
                   </div>
               </Link>                
-              <Link to="/login" className="header__link">
+              {/*<Link to="/login" className="header__link">
                   <div className="header__navLink">
                       <span className="header__linkLineOne">get </span>
                       <span className="header__linkLineTow">Connect</span>
                   </div>
-              </Link>
+              </Link>*/}
               <Link to="/login" className="header__link">
                   <div className="header__navLink">
                       <span className="header__linkLineOne">more</span>

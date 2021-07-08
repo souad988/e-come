@@ -1,0 +1,31 @@
+.vertical_nav,.vertical_nav_home{
+    border-radius:0px 4px  4px 0px;
+    height: 200px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgb(78, 77, 77) ;
+    box-shadow: 3px 3px 6px  rgb(117, 109, 104);
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    margin-top: 50px;
+    margin-bottom: 250px!important;
+    padding-top: 1em;
+    width: 40px;
+}
+
+.vertical_nav_home{
+    
+     width: 80px;
+     color: gold;
+     font-weight: bold;
+     margin-left: 0px;
+}
+
+.vertical_nav_container{
+    width: 100%;
+    
+   
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    
+}

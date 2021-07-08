@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'users',
     'verify_email',
+    'product',
 
 ]
 
@@ -180,6 +181,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "souadelmansouri2018@gmail.com"
 EMAIL_HOST_PASSWORD = "ayarachid2206"
 # os.environ.get('EMAIL_PW') os.environ.get('EMAIL_ID')
-DEFAULT_FROM_EMAIL = 'kidslearn<no_reply@domain.com>'
+DEFAULT_FROM_EMAIL = 'soha-e-com<no_reply@domain.com>'
 
 LOGIN_URL = 'login'

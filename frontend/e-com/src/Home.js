@@ -1,13 +1,15 @@
 import React from 'react';
 import './Home.css';
 import Product from './Product';
+import BootstrapCarousel from './BootstrapCarousel'
 function Home() {
     return ( 
     
         <div className="home__banner">
-         <div>
+         {/*<div>
           <img src="../hijab.jpg" alt="" className="home__bannerImage"/>
-       </div>
+         </div>*/}
+        
        <div className="home__product__container">
            <div></div>
            <div>

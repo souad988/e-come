@@ -2,19 +2,40 @@
     width: 100px;
     margin: 0 20px;
 }
+
+.header__logo {
+    animation: logo  3s 5s ease-in-out infinite  ;
+    
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  
+
+@keyframes logo {
+  from {
+    transform: rotate(0deg) scale(0.5); 
+  }
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+
+}
+
 .header{
     display: flex;
      align-items: center;
      background-color: rgb(27, 27, 27);
+     box-shadow: 3px 3px 6px  rgb(117, 109, 104);
      position: sticky;
      top: 0;
      z-index: 100;
      width: 100%;
+    /* margin-bottom: 1em;*/
 }
 .header__searchIcon{
     background-color: rgb(111, 195, 206);
-    height: 12px !important;
-    padding: 6px;
+    height: 22px !important;
+   
 }
 .header__search{
  flex: 1;

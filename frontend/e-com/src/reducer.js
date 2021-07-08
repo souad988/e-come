@@ -2,6 +2,7 @@
 export const initialState = {
     basket:[],
     user:null,
+    product:null,
 }
 
 export const totalToPay = (basket)=>basket.reduce((amount,item)=>amount+item.price,0);
@@ -14,6 +15,11 @@ const reducer=(state,action)=>{
                 ...state,
                 user:action.user,
             };
+        case 'SET_PRODUCT':
+                return{
+                    ...state,
+                    product:action.product,
+                };    
         case 'ADD_TO_BASKET':
             return{
                 ...state,
