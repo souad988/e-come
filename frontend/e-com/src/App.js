@@ -2,7 +2,7 @@ import React , {useEffect,useState} from 'react';
 import './App.css';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Header from "./Header";
-import Home1 from "./home2";
+import Product_liste from "./Product_liste";
 import Checkout from './Checkout';
 import Login from './Login';
 import {myauth} from "./firebase";
@@ -11,7 +11,7 @@ import Payement from './Payement';
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
 import  BootstrapCarousel from './BootstrapCarousel'
-import Product from './Product'
+import Product_detail from './Product_detail'
 import Animat from './Animat'
 import Footer from './Footer'
 import Vertical_nav from './Vertical_nav'
@@ -64,7 +64,7 @@ function App() {
             <Header/>
             <div className="app_home_container">
              <Vertical_nav/>
-            <Product/>
+            <Product_detail/>
              
              </div>
              <Footer/>
@@ -83,7 +83,7 @@ function App() {
              <Animat/>
              <div className="app_home_container">
              <Vertical_nav/>
-             <Home1/>
+             <Product_liste/>
              <div className="app_home_container_ads"> Ads</div>
              </div>
              <Footer/>

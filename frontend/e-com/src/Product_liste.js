@@ -1,13 +1,13 @@
 import React ,{useEffect,useState}from 'react';
-import './Home1.css';
+import './Product_liste.css';
 import Animat from './Animat'
 import Vertical_nav from './Vertical_nav'
-import Liste_product from './Liste_product'
+import Product from './Product'
 import axios from 'axios'
 import BootstrapCarousel from './BootstrapCarousel'
 import {Link} from  'react-router-dom'
 import {useTransition,animated} from 'react-spring'
-function Home1() {
+function Product_liste() {
     const [liste_products,setListe_products]=useState([])
     const [i,setI]=useState(0)
     const [homevisible,setHomevisible]=useState([])
@@ -62,7 +62,7 @@ function Home1() {
               {console.log("element:",homevisible.indexOf(element) ) }
               {  }
               {liste[homevisible.indexOf(element)]?
-            <Liste_product
+            <Product
 
                         id="1"
                         title={liste[homevisible.indexOf(element)].product_name}
@@ -76,7 +76,7 @@ function Home1() {
             </animated.div>:'')
              :
              liste.map((element)=>(
-                <Liste_product
+                <Product
 
                 id="1"
                 title={element.product_name}
@@ -95,4 +95,4 @@ function Home1() {
     );
 }
 
-export default Home1;
+export default Product_liste;

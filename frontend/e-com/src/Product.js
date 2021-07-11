@@ -1,67 +1,34 @@
-import React,{useEffect,useState} from 'react';
+import React from 'react';
 import StarRateIcon from '@material-ui/icons/StarRate';
-import Payment from '@material-ui/icons/Payment';
-import './product.css';
+import './Product.css';
+import {useHistory,Link} from 'react-router-dom';
 import { useStateValue } from './StateProvider';
-import {useHistory} from 'react-router-dom'
-import {useTransition,animated} from 'react-spring'
-function Product() {
-    const [{basket,product},dispatch]= useStateValue();
+
+function Product({id,title,price,img,range}) {
+    const [{basket,user,product},dispatch] = useStateValue();
     const history=useHistory()
-    const [play,setPlay]=useState(false)
-   useEffect(()=>{
-            if(product==null){
-                history.push('/')
-            }
-            setPlay(true)
-   },[] )
-  const addToBasket=()=>{
-      dispatch({
-          type:'ADD_TO_BASKET',
-          item:{
-              id:product.id,
-              title:product.title,
-              price:product.price,
-              img:product.img,
-              range:product.range,
-          }
-      })
-  };
-  const transition=useTransition(play,{
-    from:{x:700,y:-1000,opacity:0.4},
-    enter:()=>async(next)=>{
-        await next({y:0,opacity:0.7,delay:300});
-        await next({x:0,opacity:1,delay:100});
-    },
-    leave:{x:-100,opacity:0,delay:400},
-    
-})
+    const product_detail= ()=>{
+                  
+                  dispatch({
+                      type:'SET_PRODUCT',
+                      product:{id,title,price,img,range}
+                  }) 
+                  history.push("/product_detail");
+                  console.log("reducer product:::",product)
+      }
     return (
-        transition((style,item)=>item?
-        <animated.div style={style} >
-        <div className="product_detail_container">
-        
-          {product===null? history.push('/') :
-           (<div className="product_detail_comp">
-          <div className="product_detail_comp_img">
-          <img src={product.img.filter((item)=>(item.default))[0]._product_image } alt=""/>
-          </div>
-              <div className="product_detail_comp_info">
-                    <div className="product__range">
-                    <p><strong>{product.title}</strong></p>
-                    {
-                        Array(product.range).fill().map(()=>(<StarRateIcon className="product__star"></StarRateIcon>))
-                    }
-                    
-                    </div>
-                    <p><strong>price :</strong><small>dh</small><strong>{product.price}</strong></p>
-                    <button onClick={addToBasket}><Payment></Payment>add to basket</button>
-              </div>
+
+        <div className='product_comp_container'>
+        <div className="product__comp" onClick={product_detail}  >
           
+         <div style={{display:'grid' ,gridTemplateColumns:'2fr 1fr',gap:'1em',justifyContent:'left'}}>
+             <p><strong>{title}</strong></p>
+             <p className="product_comp_price"><small>dh</small><strong style={{}}>{price}</strong></p>
          </div>
-          )}
-        
-        </div></animated.div>:'')
+          
+          <img src={img.filter((item)=>(item.default))[0]._product_image } alt=""/>
+        </div>
+        </div>
         
     );
 }
