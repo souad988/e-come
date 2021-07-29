@@ -2,6 +2,7 @@ import React ,{useState,useEffect} from 'react'
 import HomeIcon from '@material-ui/icons/Home';
 import {useHistory,Link} from 'react-router-dom';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
+
 import PaymentIcon from '@material-ui/icons/Payment';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import './Vertical_nav.css'
@@ -18,7 +19,8 @@ function Vertical_nav() {
            <a style={{color:'rgb(111, 195, 206)',fontWeight:'bold'}}><LocalShippingIcon></LocalShippingIcon></a> 
         </div>
 
-        <div className="vertical_nav_home" style={{visibility:visible?'visible':'hidden'}} >home</div> 
+       {//<div className="vertical_nav_home" style={{visibility:visible?'visible':'hidden'}} >home</div> 
+       }
          </div>
     )
 }

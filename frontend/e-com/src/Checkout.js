@@ -13,19 +13,18 @@ function Checkout() {
           <span >Ad</span>
           <div className="checkout__ad">
          
-          <img src="../netflix.jpg"
-          alt=""/>
+          
           </div>
           </div>
           {basket?.length === 0 ?
-         ( <div><h1>empty basket!!!!!!</h1></div>) :
+         ( <div><h3>your basket is empty go back home and choose some products</h3></div>) :
          (<div><h1>your items : </h1>
             {basket.map(item =>(
                <ProductCheckout 
                id={item.id}
                title={item.title}
                price={item.price}
-               img={item.img}
+               img={item.img.filter((item)=>(item.default))[0]._product_image}
                range={item.range}
 
                />

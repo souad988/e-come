@@ -1,5 +1,6 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     "",
     "\\backend",
     "\\backend\\soha",
@@ -8,5 +9,9 @@
     "\\frontend\\e-com\\src"
   ],
   "SelectedNode": "\\.gitignore",
+=======
+    ""
+  ],
+>>>>>>> animate_inview_product
   "PreviewInSolutionExplorer": false
 }

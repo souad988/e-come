@@ -12,19 +12,22 @@ class Category(models.Model):
     category_name = models.CharField(max_length=250, unique=True)        
     def __str__(self):
         return self.category_name
-class Product(models.Model):
-    product_name = models.CharField(max_length=250, unique=True)
-    text = models.CharField(max_length=350, blank=True, null=True)
-    prix = models.FloatField()
-    user= models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
-    category = models.ForeignKey(Category,null=True,on_delete=models.SET_NULL)
-    def __str__(self):
-        return self.product_name
-
 class Color(models.Model):
     color_name =  models.CharField(max_length=250, unique=True)
     def __str__(self):
         return self.color_name
+
+class Product(models.Model):
+    product_name = models.CharField(max_length=250, unique=True)
+    text = models.CharField(max_length=350, blank=True, null=True)
+    prix = models.FloatField()
+    discount_price=models.FloatField(default=None,blank=True, null=True)
+    user= models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category,null=True,on_delete=models.SET_NULL)
+    colors=models.ManyToManyField(Color,blank=True)
+    def __str__(self):
+        return self.product_name
+
 
 '''
 import os
