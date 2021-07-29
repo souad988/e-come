@@ -19,22 +19,36 @@ function Payement() {
     const [error,setError]=useState(null);
     const [disabled,setDisabled]=useState(true);
     const [clientSecret,setClientSecret]=useState('');
-     useEffect(() => {
+
+ /*
+         const getCsrfToken = () => {
+             const csrf = document.cookie.match('(^|;)\\s*csrftoken\\s*=\\s*([^;]+)');
+             return csrf ? csrf.pop() : '';
+         };
+                //  headers: {
+               //          "X-CSRFToken": getCsrfToken()
+               //          },
+      */
+
+
+    useEffect(() => {
+     
          const getClientSecret = async ()=>{
-            //console.log('clientSecret ::',clientSecret);
-              const response = await axios ({
-                  method:'post',
-                  url:`/payement/create?total=${totalToPay(basket)*100}`
+            
+             const response = await axios({
+                 method: 'post',
+                 url: `http://127.0.0.1:8000/order/payment/create1/`,
+                 data: {'amount':totalToPay(basket)},
+               
               }) ;
-              
-              setClientSecret(response.data.clientSecret);
-              console.log('clientSecret ::',clientSecret);
+              setClientSecret(response.data.intent);
+              console.log('clientSecret :', response.data.intent );
          }
          getClientSecret();
         
      }, [basket])
      
-    //console.log('le total est :',totalToPay(basket));
+    
     const handleSubmit = async (event) =>{
              event.preventDefault();
              setProcessing(true);
@@ -42,10 +56,14 @@ function Payement() {
                 payment_method:{
                    card:elements.getElement(CardElement)
                }  
-             }).then(({paymentIntent})=>{
-                 // paymentItent is payment confirmation 
-                 console.log('here we are :',paymentIntent)
-                db
+             }).then((res)=>{
+                 // res is payment confirmation 
+                 if (res.error) {
+                     console.log('error :', res.error)
+                 }
+                 else {
+                 console.log('here we are :',res.paymentIntent)
+               /* db
                   .collection('clients')
                   .doc(user?.uid)
                   .collection('orders')
@@ -54,19 +72,16 @@ function Payement() {
                       basket:basket,
                       amount:paymentIntent.amount,
                       created:paymentIntent.created
-                    })
-                
+                    })*/
                  dispatch({
                     type:'CLEAR_BASKET',
                          }) 
-                     
-                
                  setProcessing(false);
                  setSucceded(true);
                  setError(null);
-
-                 history.push('/Checkout')
+                 history.push('/Checkout')}
              })
+        console.log('response:::', payload)
     }
     const handleChange = event =>{
            setDisabled(event.empty);
@@ -83,7 +98,8 @@ function Payement() {
              <div className="payement__total">
                   <div className="payement__method">
                   <form onSubmit={handleSubmit}>
-                     <CardElement onChange={handleChange}/> 
+                     <CardElement onChange={handleChange}/>
+                     <h5>{error}</h5> 
                      <h5>total to pay :</h5>
                    <p><small>$</small> <strong>{totalToPay(basket)}</strong></p> 
                    <button disabled={processing || succeded || disabled}>finish your command</button>
