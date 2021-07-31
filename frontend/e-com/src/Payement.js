@@ -63,21 +63,8 @@ function Payement() {
                  }
                  else {
                  console.log('here we are :',res.paymentIntent)
-<<<<<<< HEAD
                  
                  
-=======
-               /* db
-                  .collection('clients')
-                  .doc(user?.uid)
-                  .collection('orders')
-                  .doc(paymentIntent.id)
-                  .set({
-                      basket:basket,
-                      amount:paymentIntent.amount,
-                      created:paymentIntent.created
-                    })*/
->>>>>>> animate_inview_product
                  dispatch({
                     type:'CLEAR_BASKET',
                          }) 
@@ -86,7 +73,7 @@ function Payement() {
                  setError(null);
                  history.push('/Checkout')}
              })
-        console.log('response:::', payload)
+       
     }
     const handleChange = event =>{
            setDisabled(event.empty);
