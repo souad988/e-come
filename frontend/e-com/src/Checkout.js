@@ -1,10 +1,12 @@
 import React from 'react';
 import { useStateValue } from './StateProvider';
 import ProductCheckout from './ProductCheckout';
+import {useHistory} from 'react-router-dom'
 import './Checkout.css';
 import CheckoutTotal from './CheckoutTotal';
 function Checkout() {
-    const [{basket}]= useStateValue(); 
+    const [{ basket }] = useStateValue();
+    const history = useHistory()
     const  x = 0;
     return (
         <div className="checkout__com">

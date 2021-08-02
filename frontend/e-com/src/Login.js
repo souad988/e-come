@@ -6,7 +6,7 @@ import { myauth } from "./firebase";
 import axios from "axios";
 import {useStateValue} from './StateProvider';
 function Login() {
-    const [showing,setShowing]=useState(false);
+    const [showing,setShowing]=useState(0);
     
     const history=useHistory();
     const [email,setEmail] = useState('');
@@ -59,8 +59,10 @@ function Login() {
             console.log('register:', response.data);
         }
         getClientSecret().then(() => {
-            history.push("/");
-        }).catch((e) => alert(e.message));
+            setShowing(2)
+            // history.push("/");
+        }).catch((e) =>
+        alert(e.status));
     };
     
     /*Sign up
@@ -75,38 +77,59 @@ function Login() {
 
     return (
         <div className="login">
+            
            <Link to="/">
-               <img src="../e-com-logo.png" alt=""/>
+               <img src="../e-com-logo.png" alt="" className="login_img"/>
            </Link>
            <div className="form__container">
-           <div className="login__form" style={{ display: (showing ? 'none'  :'block') }}>
-               <h5>you have an account?</h5>
+           <div className="login__form" style={{ display: (showing===0 ?  'block' :'none') }}>
+               <h5>do you have an account?</h5>
                <h1>Sign-in </h1>
                <form>
+                   <div>
                    <h5><strong>username</strong></h5>
                    <input value={username} type="email" onChange={event=>setUsername(event.target.value)}></input>
+                   </div>
+                   <div>
                    <h5><strong>Password</strong></h5>
                    <input value={password} type="password" onChange={event=>setPassword(event.target.value)}></input>
-                   <button type="submit" onClick={login}> sign in </button>
+                  </div> 
+                  <button type="submit" onClick={login}> sign in </button>
                   
                </form>
-                <a href="#" onClick={() => setShowing({ showing: !showing })}>Create a new account? </a>
+                <a href="#" onClick={() => setShowing(1)}>Create a new account? </a>
            </div>
-           <div className="signup__form" style={{ display: (showing ? 'block' : 'none') }}>
+           <div className="signup__form" style={{ display: (showing===1 ? 'block' : 'none') }}>
                <h5>New user?</h5>
                <h1> Sign-up </h1>
                <form>
-                  
+                   <div className="login_div_form">
+                   <div>
                    <h5><strong>User name</strong></h5>
                    <input value={username} type="text" onChange={event=>setUsername(event.target.value)}></input>
+                   </div>
+                   <div>
                    <h5><strong>Email</strong></h5>
                    <input value={email} type="email" onChange={event=>setEmail(event.target.value)}></input>
+                   </div>
+                   <div>
                    <h5><strong>Password</strong></h5>
                    <input value={password} type="password" onChange={event=>setPassword(event.target.value)}></input>
-                   <h5><strong>Confirm Password</strong></h5>
+                   </div>
+                   <div>
+                   <strong>Confirm Password</strong>
                    <input value={password1} type="password" onChange={event=>setPassword1(event.target.value)}></input>
-                   <button type="submit" onClick={register}> Register </button>
+                   </div>
+                   </div>
+                   <button type="submit" onClick={register} > <p>Register </p></button>
+                   
                </form>
+           </div>
+           <div className="verify_email" style={{ display: (showing===2 ? 'block' : 'none') }}>
+               <h5><strong>we sent an activating link to your email account in order to verify your email  </strong>
+                   <strong>please click on that link and comme back to sign in </strong>
+                   <a href="#" onClick={() => setShowing(0)}>sign in  </a>
+               </h5>
            </div>
            </div>
         </div>

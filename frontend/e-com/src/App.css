@@ -13,10 +13,13 @@ button{
     width: 200px;
     height: 25px;
     background-color: rgb(241, 207, 15);
-     border-radius: 10px;
-     
+    border-radius: 10px;
+    text-align: center; 
     border: 1px solid;
     border-color: saddlebrown ;
+  
+    justify-content: center;
+    align-content: center;
 }
 .app{
   background-color: rgb(255, 255, 255);

@@ -7,12 +7,12 @@ import {useHistory} from 'react-router-dom';
     
 function CheckoutTotal() { 
   const history = useHistory();
-  const [{basket}]=useStateValue();
+    const [{ basket,user}]=useStateValue();
     return (
        <div className="checkout__total">
         <h3>total to pay :</h3>
         <p><small>$</small> <strong>{totalToPay(basket)}</strong></p> 
-         <button onClick={e=>{history.push("/payement")}}>finish your command</button>  
+            <button onClick={e => { user ? history.push("/payement") : history.push("/login")}}>finish your command</button>
         </div>
     )
 }
