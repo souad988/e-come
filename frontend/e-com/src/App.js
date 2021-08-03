@@ -15,6 +15,7 @@ import Product_detail from './Product_detail'
 import Animat from './Animat'
 import Footer from './Footer'
 import Vertical_nav from './Vertical_nav'
+import Usetest from './usetest';
 const promise =loadStripe(
 "pk_test_51HQHhJFwMsEistgVHY3TeyJL5ziOmn0HDA1Akyx2JqQhXExGtwkFa5L4lGM4Z0lqpE6y4RJuArfRDvqKByhil8tP00KNqndR2C"
 );
@@ -65,13 +66,10 @@ function App() {
             <Header/>
             <div className="app_home_container">
              <Vertical_nav/>
-            <Product_detail/>
-             
+            <Product_detail/> 
              </div>
              <Footer/>
-            
            </Route>
-
           <Route path="/payement">
              <Header/>
              <Elements stripe={promise}>

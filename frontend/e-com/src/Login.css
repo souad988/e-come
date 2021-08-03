@@ -56,6 +56,16 @@ h1{
     display:grid;
     grid-template-columns: 1fr 2fr;
 }
+
+.login_div_form>div>div{
+    display:block; 
+}
+
+.register_form_error>p{
+    font-size: 12px;
+    color: red!important;   
+}
+
 form>button{
     margin:1em auto;
     width: 100%;

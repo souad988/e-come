@@ -1,11 +1,13 @@
+from django.core.exceptions import ValidationError
 from django.shortcuts import render
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import MyTokenObtainPairSerializer, CustomUserSerializer
 from rest_framework import status, permissions
 from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 from verify_email.email_handler import send_verification_email
-import requests
+import requests 
 from django.shortcuts import redirect
 from django.conf import settings
 from django.core.mail import send_mail
@@ -28,18 +30,17 @@ class MyObtainTokenPairView(TokenObtainPairView):
 
 class CustomUserCreate(APIView):
     permission_classes = (permissions.AllowAny,)
-
+    renderer_classes = [JSONRenderer]
     def post(self, request, format='json'):
-        print(request.get_full_path())
+       # print(request.get_full_path())
        # data = json.loads(request.body.decode('utf-8'))
        # print("this is the road:::::",data)
         user_form = CustomUserCreationForm(data=request.data)
-       # print("this is the form:::::",user_form)
-        serializer = CustomUserSerializer(data=request.data)
-       #print("this is the serializer:::::",serializer)
-        #print(serializer.is_valid())
-        #print(serializer.errors)
-        #print("form errors:::::",user_form.errors)
+        print("this is the form:::::",user_form)
+        print("this is the form:::::",user_form.error_messages,user_form.errors.as_json())
+        print("is the userform a valide one:::",user_form.is_valid())
+        #serializer = CustomUserSerializer(data=request.data)
+      
         def email_user(email, subject, message, from_email=settings.DEFAULT_FROM_EMAIL, **kwargs):
             send_mail(subject, message, from_email, [
                       email], fail_silently=False, **kwargs)
@@ -48,13 +49,14 @@ class CustomUserCreate(APIView):
             email_user(request.data['email'], "from soha e-commerce","welcome in my website")
         #user = serializer.save()
             inactive_user = send_verification_email(request, user_form)
-        #print("from view:", inactive_user)
+        
         #print('response url:::',Response(),Response)
-        if inactive_user:
-            if serializer.is_valid():
-                jsonA = serializer.data
-                return Response(jsonA, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            print("from view:", inactive_user)
+            if inactive_user:
+                #if serializer.is_valid():
+                 #   jsonA = serializer.data
+                    return Response({'user':request.data['email']}, status=status.HTTP_201_CREATED)
+        return Response({'errors':user_form.errors.as_data()}, status=status.HTTP_400_BAD_REQUEST)
 '''
 def validateEmailToken(request):
     data = json.loads(request.body.decode('utf-8'))
