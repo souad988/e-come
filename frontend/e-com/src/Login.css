@@ -52,12 +52,12 @@ h1{
     grid-template-rows: auto;
     margin: 1em 0;
 }
-.login_div_form>div{
+.register_form_input{
     display:grid;
     grid-template-columns: 1fr 2fr;
 }
 
-.login_div_form>div>div{
+.register_form_input>div{
     display:block; 
 }
 
