@@ -52,16 +52,16 @@ h1{
     grid-template-rows: auto;
     margin: 1em 0;
 }
-.register_form_input{
+.register_form_input,.login_form_input{
     display:grid;
     grid-template-columns: 1fr 2fr;
 }
 
-.register_form_input>div{
+.register_form_input>div,.login_form_input>div{
     display:block; 
 }
 
-.register_form_error>p{
+.register_form_error,.login_form_error>p{
     font-size: 12px;
     color: red!important;   
 }

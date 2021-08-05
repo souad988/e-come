@@ -16,12 +16,13 @@ import Animat from './Animat'
 import Footer from './Footer'
 import Vertical_nav from './Vertical_nav'
 import Usetest from './usetest';
+import Login_register_form  from './Login_register_form';
 const promise =loadStripe(
 "pk_test_51HQHhJFwMsEistgVHY3TeyJL5ziOmn0HDA1Akyx2JqQhXExGtwkFa5L4lGM4Z0lqpE6y4RJuArfRDvqKByhil8tP00KNqndR2C"
 );
 
 function App() {
-  const [{user},dispatch]=useStateValue();
+ /* const [{user},dispatch]=useStateValue();
  
  
   useEffect(() => {
@@ -45,7 +46,7 @@ function App() {
         unsubscribe();
     };
     
-  }, []);
+  }, []);*/
   return (
     <div className="app">
       <Router>
@@ -54,6 +55,11 @@ function App() {
           <Route path="/login">
           <Header/>
             <Login/>
+            <Footer/>
+          </Route>
+          <Route path="/login_register_form">
+          <Header/>
+            <Login_register_form/>
             <Footer/>
           </Route>
 
