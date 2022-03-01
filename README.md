@@ -29,7 +29,7 @@ Run `npm install` from the command line
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the (https://souad988.github.io/ToDoList/issues).
+Feel free to check the (https://souad988.github/e-come/issues).
 
 ## Show your support
 
