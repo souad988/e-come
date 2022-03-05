@@ -1,6 +1,7 @@
 # e-come
- e-commerce website where the user can see different articles add them to the basket and pay online. built using React js for the frontend and Django for the backend.
+this app is an e-commerce website where users can see different articles add them to the basket and pay online. built using React js for the frontend and Django for the backend.
 
+![e-come](https://user-images.githubusercontent.com/59707859/156888247-3de13291-fbc0-4c82-a25f-98a546914f01.PNG)
 
 
 ## Built With
